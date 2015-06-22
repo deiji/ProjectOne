@@ -1,17 +1,55 @@
 package org.samsklepav.projectone;
 
+import android.content.Context;
+import android.content.Intent;
+import android.net.wifi.WifiManager;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.text.format.Formatter;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
+
+import org.samsklepav.projectone.fileManager.ExploreFilesActivity;
 
 
 public class MainActivity extends ActionBarActivity {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        final TextView textView = (TextView) findViewById(R.id.text);
+        findViewById(R.id.button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                WifiManager wifi = (WifiManager) getSystemService(Context.WIFI_SERVICE);
+                if (wifi.isWifiEnabled()) {
+                    textView.setText("enabled");
+                } else {
+                    textView.setText("disabled");
+                }
+            }
+        });
+
+        findViewById(R.id.uploadButton).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        findViewById(R.id.downloadButton).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                WifiManager wm = (WifiManager) getSystemService(WIFI_SERVICE);
+                String ip = Formatter.formatIpAddress(wm.getConnectionInfo().getIpAddress());
+                textView.setText(ip);
+            }
+        });
     }
 
     @Override
@@ -34,5 +72,15 @@ public class MainActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    /**
+     * Creating new window to describe file manager
+     * @param view
+     */
+    public void fileManager (View view){
+        Intent intent= new Intent(this ,ExploreFilesActivity.class);
+        startActivity(intent);
+
     }
 }
