@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_width="50dip"
+        android:layout_height="50dip"
+        android:id="@+id/itemType"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="name"
+        android:id="@+id/itemName"
+        android:layout_marginLeft="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/itemType"
+        android:width="175dp"
+        android:layout_alignRight="@+id/itemDate"
+        android:layout_alignEnd="@+id/itemDate"
+        android:textSize="12dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="size"
+        android:id="@+id/itemSize"
+        android:layout_alignBottom="@+id/itemType"
+        android:layout_alignLeft="@+id/itemName"
+        android:layout_alignStart="@+id/itemName"
+        android:width="100dp"
+        android:textSize="10dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="19/06/2015 12:29"
+        android:textAlignment="viewEnd"
+        android:gravity="end"
+        android:id="@+id/itemDate"
+        android:layout_alignBottom="@+id/itemType"
+        android:width="120dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:textSize="10dp" />
+
+</RelativeLayout>

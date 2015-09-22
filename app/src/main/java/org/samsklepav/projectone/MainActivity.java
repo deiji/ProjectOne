@@ -75,7 +75,7 @@ public class MainActivity extends ActionBarActivity {
     }
 
     /**
-     * Creating new window to describe file manager
+     * Creating new window to show file manager
      * @param view
      */
     public void fileManager (View view){
